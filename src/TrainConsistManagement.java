@@ -1,46 +1,60 @@
-import java.util.Arrays;
-
 /**
  * ==========================================================
  * MAIN CLASS - TrainConsistManagement
  * ==========================================================
- * Use Case 17: Sort Bogie Names Using Arrays.sort()
+ * Use Case 18: Linear Search for Bogie ID
  * * Description:
- * This class demonstrates sorting of bogie type names
- * alphabetically using Java's built-in Arrays.sort() method.
+ * This class demonstrates searching for a specific bogie ID
+ * using a simple Linear Search algorithm.
  * * At this stage, the application:
- * - Creates an array of bogie names
- * - Uses Arrays.sort() for optimized sorting
- * - Displays sorted results using Arrays.toString()
- * * This maps optimized sorting using Java library utilities.
+ * - Creates an array of bogie IDs
+ * - Accepts a search key
+ * - Traverses array sequentially
+ * - Stops when match is found
+ * - Displays search result
+ * * This maps basic searching logic using sequential traversal.
  * * @author Developer
- * @version 17.0
+ * @version 18.0
  */
 public class TrainConsistManagement {
 
     public static void main(String[] args) {
 
-        System.out.println("===============================================");
-        System.out.println(" UC17 - Sort Bogie Names Using Arrays.sort() ");
-        System.out.println("===============================================\n");
+        System.out.println("-------------------------------------------");
+        System.out.println(" UC18 - Linear Search for Bogie ID ");
+        System.out.println("-------------------------------------------\n");
 
-        // Create an array of bogie names
-        String[] bogieNames = {"Sleeper", "AC Chair", "First Class", "General", "Luxury"};
+        // Create array of bogie IDs
+        String[] bogieIds = {"B6101", "B6205", "B6309", "B6412", "B6550"};
 
-        // Display original order
-        System.out.println("Original Bogie Names:");
-        System.out.println(Arrays.toString(bogieNames));
+        // Bogie ID to search
+        String searchId = "B6309";
+
+        // Display all available bogies
+        System.out.println("Available Bogie IDs:");
+        for (String id : bogieIds) {
+            System.out.println(id);
+        }
         System.out.println();
 
-        // ---- OPTIMIZED SORTING ----
-        // Using Java's built-in utility for O(n log n) efficiency
-        Arrays.sort(bogieNames);
+        // ---- LINEAR SEARCH LOGIC ----
+        // Traverse each element sequentially
+        boolean found = false;
 
-        // Display sorted result (Alphabetical order)
-        System.out.println("Sorted Bogie Names (Alphabetical):");
-        System.out.println(Arrays.toString(bogieNames));
-        System.out.println();
+        for (String id : bogieIds) {
+            if (id.equals(searchId)) {
+                found = true;
+                break; // Early termination once match is found
+            }
+        }
 
-        System.out.println("UC17 sorting completed...");
+        // Display result
+        if (found) {
+            System.out.println("Bogie " + searchId + " found in train consist.");
+        } else {
+            System.out.println("Bogie " + searchId + " NOT found in train consist.");
+        }
+
+        System.out.println("\nUC18 search completed...");
     }
 }
